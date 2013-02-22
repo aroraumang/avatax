@@ -90,6 +90,12 @@ class TestAPI(unittest.TestCase):
         self.assertTrue('TaxAddresses' in response)
         self.assertTrue('TaxDate' in response)
 
+    def test_0040_test_connection(self):
+        """
+        Check if the test_connection API works
+        """
+        self.assertTrue(self.api.test_connection())
+
 
 if __name__ == '__main__':
     unittest.main()
