@@ -52,7 +52,7 @@ class RunAudit(Command):
 
 setup(
     name='Avatax',
-    version='0.1dev',
+    version='0.1',
     author='Openlabs Technologies & Consulting (P) Limited',
     author_email='info@openlabs.co.in',
     packages=['avatax', 'avatax.test'],
