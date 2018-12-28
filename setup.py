@@ -28,7 +28,7 @@ class RunAudit(Command):
         try:
             import pyflakes.scripts.pyflakes as flakes
         except ImportError:
-            print "Audit requires PyFlakes installed in your system."
+            print("Audit requires PyFlakes installed in your system.")
             sys.exit(-1)
 
         warns = 0
@@ -43,10 +43,10 @@ class RunAudit(Command):
                             and file.endswith('.py'):
                         warns += flakes.checkPath(os.path.join(root, file))
         if warns > 0:
-            print "Audit finished with total %d warnings." % warns
+            print("Audit finished with total %d warnings." % warns)
             sys.exit(-1)
         else:
-            print "No problems found in sourcecode."
+            print("No problems found in sourcecode.")
             sys.exit(0)
 
 

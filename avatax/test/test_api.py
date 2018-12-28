@@ -9,7 +9,7 @@
 """
 import unittest
 from decimal import Decimal
-from ConfigParser import SafeConfigParser
+from configparser import ConfigParser
 
 from avatax import API, AvataxError
 
@@ -17,7 +17,7 @@ from avatax import API, AvataxError
 class TestAPI(unittest.TestCase):
 
     def setUp(self):
-        parser = SafeConfigParser()
+        parser = ConfigParser()
         parser.read('account.cfg')
 
         self.api = API(
@@ -38,7 +38,7 @@ class TestAPI(unittest.TestCase):
             Region = 'Florida',
             Country = 'USA',
         )
-        self.assertEqual(response['County'], 'Miami-Dade')
+        self.assertEqual(response['County'], 'MIAMI-DADE')
 
         self.assertRaises(
             AvataxError,
@@ -63,21 +63,21 @@ class TestAPI(unittest.TestCase):
         Get the detailed Tax information
         """
         data = {
-            u'DocDate': u'2011-05-11',
-            u'CustomerCode': u'CUST1',
-            u'Lines': [
+            'DocDate': '2011-05-11',
+            'CustomerCode': 'CUST1',
+            'Lines': [
                 {
-                    u'DestinationCode': u'1',
-                    u'Amount': 10, u'Qty': 1,
-                    u'LineNo': u'1',
-                    u'OriginCode': u'1'
+                    'DestinationCode': '1',
+                    'Amount': 10, 'Qty': 1,
+                    'LineNo': '1',
+                    'OriginCode': '1'
                 }
             ],
-            u'Addresses': [
+            'Addresses': [
                 {
-                    u'PostalCode': u'33137',
-                    u'AddressCode': u'1',
-                    u'Line1': u'1706 Biscayne Boulevard'
+                    'PostalCode': '33137',
+                    'AddressCode': '1',
+                    'Line1': '1706 Biscayne Boulevard'
                 }
             ]
         }
